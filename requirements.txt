@@ -1,0 +1,15 @@
+numpy
+black
+Jinja2
+tqdm
+rich
+psutil
+datasets
+ruff
+wandb
+fschat
+transformers >= 4.33.1
+PEFT >= 0.4.0
+bitsandbytes >= 0.40.0
+flash-attn [no-build-isolation] >= 2.0
+git+https://github.com/HazyResearch/flash-attention.git#subdirectory=csrc/rotary

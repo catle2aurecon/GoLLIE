@@ -1,0 +1,7 @@
+services:
+  gollie_notebook:
+    image: aurecon/gollie:latest
+    ports:
+      - 18888:8888
+    command: sh -c 'jupyter notebook'
+    

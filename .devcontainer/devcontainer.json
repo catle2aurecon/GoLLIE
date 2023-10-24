@@ -1,0 +1,4 @@
+{
+    "image": "aurecon/gollie:latest",    
+    "postCreateCommand": "sh -c 'jupyter notebook'"
+}

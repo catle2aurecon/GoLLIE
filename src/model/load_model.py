@@ -152,6 +152,7 @@ def load_model(
     use_better_transformer: bool = False,
     fsdp_training: bool = False,
     max_memory_MB: Optional[int] = None,
+    hf_access_token: Optional[str] = None,
 ) -> Tuple[PreTrainedModel, PreTrainedTokenizerBase]:
     """
     Load any Decoder model for training.
@@ -291,11 +292,13 @@ def load_model(
             trust_remote_code=trust_remote_code,
             pretraining_tp=1,  # Fix mat1 and mat2 shapes cannot be multiplied  error with LLaMA-2
             # See https://github.com/huggingface/transformers/pull/24906
+            token=hf_access_token,
         )
     else:
         config = AutoConfig.from_pretrained(
             model_weights_name_or_path,
             trust_remote_code=trust_remote_code,
+            token=hf_access_token,
         )
 
     # Load the model tokenizer
@@ -395,6 +398,7 @@ def load_model(
         torch_dtype=torch_dtype,
         config=config,
         trust_remote_code=trust_remote_code,
+        token=hf_access_token,
         **quant_args,
     )
 
